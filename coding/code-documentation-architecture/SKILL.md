@@ -1,16 +1,17 @@
 ---
 name: code-documentation-architecture
-description: Generate complete repository documentation and system architecture artifacts from source code. Use when Codex must create or refresh `project_structure.md`, `code_summary.md`, `architecture.md`, and `tasks.md` (phases/tasks/subtasks) for onboarding, audits, handoffs, refactors, migrations, and technical planning.
+description: Generate complete repository documentation and system architecture artifacts from source code. Use when Codex must create or refresh `project_structure.md`, `code_summary.md`, `architecture.md`, `tasks.md`, and `issues.md` for onboarding, audits, handoffs, refactors, migrations, and technical planning.
 ---
 
 # Code Documentation Architecture
 
-Use this skill to transform a repository into four aligned documentation artifacts:
+Use this skill to transform a repository into five aligned documentation artifacts:
 
 1. `project_structure.md`
 2. `code_summary.md`
 3. `architecture.md`
 4. `tasks.md`
+5. `issues.md`
 
 ## Workflow
 
@@ -44,9 +45,14 @@ Use this skill to transform a repository into four aligned documentation artifac
 - Organize by phases, tasks, and subtasks with dependencies and acceptance criteria.
 - Ensure each subtask is atomic, testable, and mapped to affected files/components.
 
-7. Run consistency checks.
+7. Create `issues.md`.
+- Follow [issues_template.md](references/issues_template.md).
+- Capture confirmed bugs, gaps, and operational risks discovered while reading the code.
+- Include severity, impact, evidence, reproduction conditions, and proposed remediation.
+
+8. Run consistency checks.
 - Apply [quality_checklist.md](references/quality_checklist.md).
-- Ensure terminology, component names, and interfaces are consistent across all four files.
+- Ensure terminology, component names, and interfaces are consistent across all five files.
 - Record unknowns and assumptions explicitly instead of guessing.
 
 ## Output Rules
@@ -63,4 +69,5 @@ Use this skill to transform a repository into four aligned documentation artifac
 - [code_summary_template.md](references/code_summary_template.md)
 - [architecture_template.md](references/architecture_template.md)
 - [tasks_template.md](references/tasks_template.md)
+- [issues_template.md](references/issues_template.md)
 - [quality_checklist.md](references/quality_checklist.md)
