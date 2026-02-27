@@ -21,6 +21,7 @@
 - Severity: critical/high/medium/low
 - Category: bug/performance/security/reliability/maintainability/data
 - Affected files/components:
+- Related task IDs:
 - Evidence:
 - User or system impact:
 - Trigger or reproduction conditions:
@@ -33,6 +34,7 @@
 - Severity: critical/high/medium/low
 - Category: bug/performance/security/reliability/maintainability/data
 - Affected files/components:
+- Related task IDs:
 - Evidence:
 - User or system impact:
 - Trigger or reproduction conditions:
@@ -50,10 +52,15 @@
 |---|---|---|---|
 | P0 | `Issue 1` |  | `Task 1.1` |
 
-## 6. Deferred or Unverified Findings
+## 6. Task Link Coverage
+| Issue | Linked Tasks | Purpose | Needs New Task |
+|---|---|---|---|
+| `Issue 1` | `Task 1.1` | fix/validate/follow-up | no |
+
+## 7. Deferred or Unverified Findings
 | Finding | Reason Deferred | What Would Confirm It |
 |---|---|---|
 | `...` |  |  |
 
-## 7. Change Log
+## 8. Change Log
 - Date - Updated by - Summary of issue document changes.

@@ -42,13 +42,13 @@ Use this skill to transform a repository into five aligned documentation artifac
 
 6. Create `tasks.md`.
 - Follow [tasks_template.md](references/tasks_template.md).
-- Organize by phases, tasks, and subtasks with dependencies and acceptance criteria.
+- Organize by phases, tasks, and subtasks with status, blockers, dependencies, and acceptance criteria.
 - Ensure each subtask is atomic, testable, and mapped to affected files/components.
 
 7. Create `issues.md`.
 - Follow [issues_template.md](references/issues_template.md).
 - Capture confirmed bugs, gaps, and operational risks discovered while reading the code.
-- Include severity, impact, evidence, reproduction conditions, and proposed remediation.
+- Include severity, impact, evidence, reproduction conditions, proposed remediation, and links to related task IDs in `tasks.md`.
 
 8. Run consistency checks.
 - Apply [quality_checklist.md](references/quality_checklist.md).
@@ -71,3 +71,7 @@ Use this skill to transform a repository into five aligned documentation artifac
 - [tasks_template.md](references/tasks_template.md)
 - [issues_template.md](references/issues_template.md)
 - [quality_checklist.md](references/quality_checklist.md)
+
+## Example Output Set
+
+A small sample output set is provided in [examples](examples) to show the expected structure and how `issues.md` findings should reference task IDs in `tasks.md`.

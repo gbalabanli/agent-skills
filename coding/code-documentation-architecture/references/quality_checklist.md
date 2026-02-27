@@ -26,12 +26,16 @@ Use this checklist before finalizing documentation outputs.
 
 ## Planning Integrity (`tasks.md`)
 - Work is organized into phases with clear objectives.
+- Each task has an explicit status.
+- Blockers are called out with `Blocked by` when applicable.
 - Each task has explicit acceptance criteria.
 - Subtasks are atomic and verifiable.
 - Dependencies and critical path are identified.
+- Issue-to-task mapping is present for work driven by known bugs or findings.
 
 ## Issue Tracking Integrity (`issues.md`)
 - Each issue includes severity and affected scope.
+- Each issue links to related task IDs when remediation or validation work exists.
 - Findings are tied to concrete code evidence or clearly marked as assumptions.
 - Recommended fixes and validation steps are actionable.
 - Priority ordering reflects actual impact and blockers.
