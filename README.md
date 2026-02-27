@@ -12,18 +12,17 @@ The goal is to keep skill discovery simple, make maintenance predictable, and pr
 
 ```text
 Agent-Skills/
-|-- agent-skills/
-|   |-- coding/
-|   |   `-- <skill-name>/
-|   |       |-- SKILL.md
-|   |       |-- scripts/
-|   |       |-- templates/
-|   |       `-- assets/
-|   |-- research/
-|   |-- search/
-|   |-- visualizations/
-|   |-- game-dev/
-|   `-- productivity/
+|-- coding/
+|   `-- <skill-name>/
+|       |-- SKILL.md
+|       |-- scripts/
+|       |-- templates/
+|       `-- assets/
+|-- research/
+|-- search/
+|-- visualizations/
+|-- game-dev/
+|-- productivity/
 `-- README.md
 ```
 
@@ -38,7 +37,7 @@ Agent-Skills/
 
 ## Adding a New Skill
 
-1. Choose the most appropriate category under `agent-skills/`.
+1. Choose the most appropriate category at the repository root.
 2. Create a new directory using a clear, lowercase skill name such as `api-docs` or `bug-triage`.
 3. Add a `SKILL.md` file that explains the skill's purpose, workflow, and usage rules.
 4. Add supporting files only when needed, such as scripts, templates, reference docs, or assets.
