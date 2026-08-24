@@ -7,63 +7,74 @@ description: Clarify vague or high-level requests, propose options, and give dir
 
 ## Overview
 
-Turn unclear goals into clear, actionable guidance by confirming intent, offering options, and explaining a recommended path with concrete steps.
+Turn unclear goals into clear, actionable guidance by proactively researching the user's intent — investigating the workspace and the internet — then presenting a well-informed proposal for confirmation before producing the final guidance.
 
 ## Workflow
 
-### 1) Triage the request
+### 1) Guess the intention
 
-- Identify the user's goal, scope, constraints, and success criteria.
-- Restate the intent in one sentence to confirm understanding.
+- Read the user's request and infer the most likely goal, scope, and success criteria.
+- Restate your best guess of the intent in one sentence (internally).
 
-### 1b) Self-check to reduce misunderstanding (anti-hallucination)
+### 2) Investigate proactively (workspace + internet)
 
-- Score your understanding `0-5`:
-  - `0-1`: You do not know what the user wants.
-  - `2`: You have a rough guess, but multiple plausible intents exist.
-  - `3`: You mostly understand, but key constraints/inputs are missing.
-  - `4`: You understand intent and constraints; only minor details missing.
-  - `5`: You understand intent, constraints, and success criteria clearly.
-- If score `<= 3`, ask clarifying questions before proposing a detailed solution.
-- If score `>= 4`, proceed, but still call out any assumptions explicitly.
+Do NOT ask the user what's missing. Instead, research on their behalf:
 
-### 2) Ask minimal clarifying questions (only if needed)
+**Workspace investigation:**
+- Explore the current project structure, tech stack, existing configs, and related files.
+- Look for patterns, conventions, and constraints already established in the codebase.
 
-- Ask 1-3 targeted questions that unblock action.
-- If safe assumptions are possible, state them and proceed.
+**Internet research:**
+- Search for the general consensus, best practices, and common approaches related to the user's intent.
+- Find what the community/industry standard is for accomplishing this kind of goal.
+- Gather concrete examples, tools, libraries, or frameworks that are commonly used.
 
-**Clarifying question template (pick 1-3):**
-- Goal: "What outcome should we optimize for (speed, correctness, cost, UX)?"
-- Scope: "What's in/out of scope?"
-- Inputs: "What files/URLs/examples should I use? Paste a sample."
-- Constraints: "Any deadlines, platform limits, or libraries to avoid?"
-- Success: "What does 'done' look like (tests, screenshot, metric, behavior)?"
+### 3) Formulate your solution
 
-### 3) Propose options
+Based on your research:
+- Synthesize what you found into a concrete proposed approach.
+- Identify the recommended path: what tools/methods to use, what steps to follow, what tradeoffs exist.
+- Note any assumptions you're making and any gaps you couldn't fill through research.
 
-- Offer 2-3 realistic options with tradeoffs (time, cost, complexity, risk).
-- Recommend one option based on stated constraints.
+### 4) Present proposal and confirm
 
-### 4) Give direct, step-by-step guidance
+Present your findings to the user as a proposal:
 
-- Provide ordered steps the user can follow immediately.
-- Include prerequisites, tools, and checkpoints when useful.
+**Proposal template:**
+- "Here's what I think you're asking for: [restate intent]"
+- "Based on my research, here's the general approach: [summary of findings]"
+- "My recommended solution: [concrete plan with key steps]"
+- "Assumptions I'm making: [list any]"
+- "Is this what you're looking for?"
 
-### 5) Close the loop
+Wait for the user to confirm (yes) or correct you.
 
-- Ask for missing inputs after presenting an initial path.
-- Offer to refine once the user answers.
+### 5) Create the guidance (after confirmation)
 
-## Response structure
+Only after the user confirms:
+- Provide 2-3 realistic options with tradeoffs (time, cost, complexity, risk).
+- Recommend one option based on stated constraints and your research.
+- Give ordered, concrete steps the user can follow immediately.
+- Include prerequisites, tools, checkpoints, and references where useful.
+
+### 6) Close the loop
+
+- Ask if the user wants to refine any part of the guidance.
+- Offer to adjust depth, scope, or approach based on feedback.
+
+## Response structure (after confirmation)
 
 - Summarize intent in one sentence.
 - State assumptions (if any).
-- List options (2-3 bullets).
+- List options (2-3 bullets) with tradeoffs.
 - Recommend one path in 1-2 sentences.
-- Provide numbered steps.
+- Provide numbered steps with prerequisites and tools.
 
-## Notes
+## Key principles
 
+- **Research first, ask later.** Never ask the user to fill gaps you can fill yourself through investigation.
+- **Present a proposal, not questions.** The user should only need to say "yes" or "not quite, I meant X."
+- **Be informed.** Your proposal should reflect real-world best practices and the actual project context, not generic advice.
 - Keep guidance concrete and actionable; avoid vague advice.
 - Match the user's level; explain jargon briefly if it appears.
 - If the request is infeasible or unsafe, explain why and offer a safe alternative.
