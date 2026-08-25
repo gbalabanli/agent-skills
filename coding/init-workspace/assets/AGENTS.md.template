@@ -1,0 +1,33 @@
+# Agent Configuration & Project Guidelines
+
+> [!NOTE]
+> This document serves as the primary entry point for AI Coding Agents working in this codebase.
+
+## Project Overview
+- **Project Name**: ${PROJECT_NAME}
+- **Tech Stack**: ${TECH_STACK}
+- **Primary Language(s)**: ${PRIMARY_LANGUAGES}
+
+## Startup Commands & Diagnostics
+```bash
+# Setup / Install dependencies
+${INSTALL_CMD}
+
+# Run build / compilation
+${BUILD_CMD}
+
+# Run tests
+${TEST_CMD}
+```
+
+## Agent Guidelines & Boundaries
+1. **Never guess API schemas or variable names**: Inspect source files before consuming symbols.
+2. **Verification First**: Always run tests or build commands to verify changes before marking tasks complete.
+3. **Log Failure Patterns**: Record recurring bugs, framework quirks, or edge cases in `.ai/LESSONS_LEARNED.md`.
+4. **Track Feature Progress**: Record development session summaries under relevant features in `.ai/FEATURE_HISTORY.md`.
+5. **Maintain Task Backlog**: Update task checkboxes (`[ ]`, `[/]`, `[x]`) in `.ai/TASKS.md`.
+
+## Always-Enabled Workflow Rules
+- Follow Test-Driven Development (TDD) where applicable.
+- Keep commits granular and documented.
+- Preserve existing API contracts and docstrings unless explicitly instructed otherwise.

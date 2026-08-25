@@ -1,0 +1,27 @@
+# Lessons Learned & Pitfall Memory Log
+
+This document serves as persistent memory across AI agent sessions. Record unexpected errors, framework quirks, build pitfalls, and user preferences here so agents do not repeat mistakes.
+
+---
+
+## Technical Pitfalls & Framework Edge Cases
+
+### [Category / Module Name]
+- **Issue / Symptom**: Briefly describe the failure or error encountered.
+- **Root Cause**: What actually caused the issue (e.g., async race condition, missing import, permission error).
+- **Correct Solution**: How to prevent or fix it (code snippet or rule).
+- **Date Recorded**: YYYY-MM-DD
+
+---
+
+## Environment & Build Gotchas
+
+- **Dependency / Tooling Quirk**: [Detail any platform or environment specific issue]
+- **Workaround / Fix**: [Exact command or config fix]
+
+---
+
+## User Preferences & Conventions
+
+- **Formatting / Style Rules**: [Specific preferences communicated by the user]
+- **Architectural Rules**: [Constraints or preferences specified for this codebase]

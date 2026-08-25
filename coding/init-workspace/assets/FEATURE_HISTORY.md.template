@@ -1,0 +1,26 @@
+# Feature Development & Session History
+
+This document tracks the evolution of features in this project. Each feature section contains a timeline of development sessions, key architectural decisions, and commit references.
+
+---
+
+## Feature Index
+- [Feature: Core Setup](#feature-core-setup)
+${FEATURE_INDEX_ITEMS}
+
+---
+
+## Feature: Core Setup
+- **Status**: Completed
+- **Description**: Initial project scaffolding, directory layout, and baseline configuration.
+
+### Session Log: Scaffolding & Setup
+- **Date**: ${INIT_DATE}
+- **Summary**: Initialized project repository and scaffolded `.ai/` agent development files.
+- **Key Decisions**: Established standard `.ai/` directory structure for agent memory and instructions.
+- **Git Commits**:
+  - `${INIT_COMMIT_HASH}`: Project setup and initial commit.
+
+---
+
+${FEATURE_SECTIONS}

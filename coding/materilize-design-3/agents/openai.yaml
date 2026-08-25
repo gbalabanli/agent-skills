@@ -1,0 +1,5 @@
+interface:
+  display_name: "Materilize Design 3"
+  short_description: "Apply Material Design 3 with Material Web quick-start and production build setup."
+  default_prompt: "Apply Material Design 3 using Material Web: select prototype or production mode, install/import required @material/web components, enforce MD3 component hierarchy and tokens, and return changed files plus run/build commands."
+

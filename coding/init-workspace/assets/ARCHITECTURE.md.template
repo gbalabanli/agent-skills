@@ -1,0 +1,38 @@
+# Architecture & System Map
+
+High-level overview of system components, key entry points, directory structure, and data flows.
+
+---
+
+## Directory Overview
+
+```
+${DIRECTORY_TREE}
+```
+
+---
+
+## Core Components & Modules
+
+### 1. Entry Points
+- **Main Entry**: `${MAIN_ENTRY_POINT}`
+
+### 2. Core Modules
+- **Module / Directory**: Description of primary responsibility.
+
+---
+
+## Data Flow & Relationships
+
+```mermaid
+graph TD
+    User([User / Client]) --> Entry[Main Entry Point]
+    Entry --> Modules[Core Modules]
+    Modules --> DataStore[(Storage / DB)]
+```
+
+---
+
+## Key Abstractions & Conventions
+- **Design Pattern**: [e.g. MVC, Clean Architecture, Pipeline, TDD]
+- **State Management**: [e.g. Local state, Redux, Context]

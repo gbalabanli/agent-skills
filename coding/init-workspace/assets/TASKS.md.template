@@ -1,0 +1,24 @@
+# Task Backlog & Milestones
+
+Track current priorities, planned features, active work items, and completed tasks.
+
+---
+
+## Active / Current Sprint
+
+- [ ] **[Feature Name]**: Brief task title
+  - [ ] Subtask 1
+  - [ ] Subtask 2
+  - Verification: How this task will be tested/verified
+
+---
+
+## Completed Tasks
+
+- [x] **Project Initialization**: Initialized project repository and scaffolded `.ai/` files. (Completed: ${INIT_DATE})
+
+---
+
+## Backlog / Future Enhancements
+
+- [ ] **[Planned Feature]**: Description of planned feature or refactor.
