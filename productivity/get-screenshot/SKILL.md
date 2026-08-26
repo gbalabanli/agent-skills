@@ -38,6 +38,7 @@ uv run get-screenshots <url> -o <output_path> --width 1920 --height 1080 --full-
 | `--width` | Viewport width in pixels | `1280` |
 | `--height` | Viewport height in pixels | `720` |
 | `--full-page` | Capture full scrollable page | `false` |
+| `--selector` | CSS selector to capture a specific element only | — |
 
 ## Workflow
 
@@ -51,13 +52,26 @@ uv run get-screenshots <url> -o <output_path> --width 1920 --height 1080 --full-
 - Default to `screenshot.png` in the current directory unless the user specifies otherwise.
 - Use descriptive filenames when capturing multiple pages (e.g., `homepage.png`, `login-page.png`).
 
-### 3) Choose viewport
+### 3) Analyze the design target (design-aware viewport)
 
-- Use default 1280x720 unless the user specifies dimensions.
-- For mobile screenshots, suggest `--width 375 --height 812` (iPhone X).
-- For full-page captures, add `--full-page`.
+Before choosing a viewport, think like a designer taking a snip — what is the user actually trying to capture?
 
-### 4) Execute
+- **Mobile design / mobile app screen**: Use a mobile viewport. Do NOT stretch it wide.
+  - iPhone: `--width 393 --height 852` (iPhone 14) or `--width 375 --height 812` (iPhone X)
+  - Android: `--width 360 --height 800`
+- **Logo, icon, badge, or small UI element**: Use `--selector` to capture only that element. Do NOT screenshot the full page at desktop width — crop to the element itself. Example: `--selector "img.logo"` or `--selector ".brand-icon"`.
+- **Desktop web page / landing page**: Use the default 1280x720 or wider (1440, 1920).
+- **Tablet design**: `--width 768 --height 1024` (iPad).
+- **Full-page capture** (scroll everything): Add `--full-page`.
+
+**Key rule**: Never default to a wide desktop viewport when the content is clearly mobile or a small element. Match the viewport to the design intent.
+
+### 4) Choose viewport dimensions
+
+- Use the dimensions determined in step 3.
+- If the user specifies dimensions, those always take priority.
+
+### 5) Execute
 
 ```bash
 uv run get-screenshots https://example.com -o screenshot.png
@@ -77,7 +91,7 @@ uv run get-screenshots https://example.com -o output.png
 # with workdir set to: C:\Users\Bora\Desktop\Workspace\agents\agent-tools
 ```
 
-### 5) Verify output
+### 6) Verify output
 
 - Confirm the file was created and has non-zero size.
 - Report the file path and size to the user.
@@ -102,6 +116,21 @@ uv run get-screenshots https://example.com -o full-page.png --full-page
 **Capture at 4K resolution:**
 ```bash
 uv run get-screenshots https://example.com -o 4k.png --width 3840 --height 2160
+```
+
+**Capture only a logo element:**
+```bash
+uv run get-screenshots https://example.com -o logo.png --selector "img.logo"
+```
+
+**Capture a mobile app screen (don't stretch wide):**
+```bash
+uv run get-screenshots https://example.com -o mobile-screen.png --width 393 --height 852
+```
+
+**Capture a specific card or component:**
+```bash
+uv run get-screenshots https://example.com -o card.png --selector ".product-card"
 ```
 
 ## Prerequisites
