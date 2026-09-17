@@ -1,11 +1,13 @@
 ---
 name: init-workspace
-description: Scaffold and initialize standard AI agent development workspace files (.ai/AGENTS.md, .ai/LESSONS_LEARNED.md, .ai/FEATURE_HISTORY.md, .ai/TASKS.md, .ai/ARCHITECTURE.md) tailored to a project's codebase, tech stack, and git history. Use when initializing a new or existing codebase for optimal AI-agent collaboration based on Andrej Karpathy's agent principles.
+description: Scaffold and initialize standard AI agent development workspace files (AGENTS.md at workspace root, plus .ai/LESSONS_LEARNED.md, .ai/FEATURE_HISTORY.md, .ai/TASKS.md, .ai/ARCHITECTURE.md) tailored to a project's codebase, tech stack, and git history. Use when initializing a new or existing codebase for optimal AI-agent collaboration based on Andrej Karpathy's agent principles.
 ---
 
 # Init Workspace
 
-Use this skill to bootstrap or repair the `.ai/` agent development directory in any workspace.
+Use this skill to bootstrap or repair the agent development workspace in any project.
+`AGENTS.md` lives at the workspace root (where LLMs expect it); all other
+memory files live in `<project_root>/.ai/`.
 
 ## Workflow
 
@@ -22,24 +24,26 @@ Use this skill to bootstrap or repair the `.ai/` agent development directory in 
    - If overwriting existing files is required, pass `--overwrite`.
 
 3. **Customize Workspace Files**:
-   - Update `.ai/AGENTS.md` with explicit build/test commands, tools, and safety boundaries.
+    - Update `AGENTS.md` (workspace root) with explicit build/test commands, tools, and safety boundaries.
    - Update `.ai/ARCHITECTURE.md` with system entry points and core module descriptions.
    - Seed `.ai/TASKS.md` with initial task backlog items and verification criteria.
    - Initialize `.ai/FEATURE_HISTORY.md` with active features and initial session dev summaries.
    - Ensure `.ai/LESSONS_LEARNED.md` is clean and ready for recording pitfalls and corrections.
 
 4. **Validate Workspace Setup**:
-   - Confirm all 5 files exist inside `.ai/`: `AGENTS.md`, `LESSONS_LEARNED.md`, `FEATURE_HISTORY.md`, `TASKS.md`, `ARCHITECTURE.md`.
-   - Verify formatting and clickable file links.
+    - Confirm `AGENTS.md` exists at the workspace root and the other 4 files exist inside `.ai/`: `LESSONS_LEARNED.md`, `FEATURE_HISTORY.md`, `TASKS.md`, `ARCHITECTURE.md`.
+    - Verify formatting and clickable file links (`AGENTS.md` links to memory files as `.ai/<name>.md`).
 
 ## Workspace Structure
 
-All workspace memory and agent instruction files reside in `<project_root>/.ai/`:
+`AGENTS.md` lives at the workspace root (same level as `.ai/`), where LLMs
+look for it. All other workspace memory and agent instruction files reside in
+`<project_root>/.ai/`:
 
 ```
 <project_root>/
+├── AGENTS.md              # Agent rules, setup commands, build/test scripts, safety rules (links to .ai/*.md)
 └── .ai/
-    ├── AGENTS.md            # Agent rules, setup commands, build/test scripts, safety rules
     ├── LESSONS_LEARNED.md    # Memory log for failures, gotchas, framework pitfalls, user rules
     ├── FEATURE_HISTORY.md    # Feature-centric development history & session summaries
     ├── TASKS.md              # Active task backlog, feature milestones, verification status
@@ -61,4 +65,4 @@ All workspace memory and agent instruction files reside in `<project_root>/.ai/`
 ## Validation
 
 1. Run `python coding/init-workspace/scripts/init_workspace.py --help` to confirm script readiness.
-2. Confirm `.ai/` directory and all 5 markdown files exist and contain non-empty project details.
+2. Confirm `AGENTS.md` exists at the workspace root and the `.ai/` directory with all 4 markdown files exists, all containing non-empty project details.

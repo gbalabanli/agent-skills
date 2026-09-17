@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
 init_workspace.py - Automated workspace initialization CLI script for AI agent development.
-Scaffolds standard .ai/ workspace documentation (AGENTS.md, LESSONS_LEARNED.md,
-FEATURE_HISTORY.md, TASKS.md, ARCHITECTURE.md) tailored to target repository.
+Scaffolds standard workspace documentation: AGENTS.md at the project root
+(where LLMs expect it) plus LESSONS_LEARNED.md, FEATURE_HISTORY.md, TASKS.md,
+ARCHITECTURE.md under .ai/, tailored to the target repository.
 """
 
 import argparse
@@ -160,22 +161,31 @@ def scaffold(root_path, output_subfolder=".ai", overwrite=False):
     }
 
     templates = [
-        ("AGENTS.md.template", "AGENTS.md"),
-        ("LESSONS_LEARNED.md.template", "LESSONS_LEARNED.md"),
-        ("FEATURE_HISTORY.md.template", "FEATURE_HISTORY.md"),
-        ("TASKS.md.template", "TASKS.md"),
-        ("ARCHITECTURE.md.template", "ARCHITECTURE.md"),
+        # (template file, output subfolder relative to root, output file)
+        # AGENTS.md lives at the workspace root so every LLM picks it up;
+        # all other memory files live under .ai/.
+        ("AGENTS.md.template", "", "AGENTS.md"),
+        ("LESSONS_LEARNED.md.template", output_subfolder, "LESSONS_LEARNED.md"),
+        ("FEATURE_HISTORY.md.template", output_subfolder, "FEATURE_HISTORY.md"),
+        ("TASKS.md.template", output_subfolder, "TASKS.md"),
+        ("ARCHITECTURE.md.template", output_subfolder, "ARCHITECTURE.md"),
     ]
 
     created_files = []
     skipped_files = []
 
-    for t_file, out_file in templates:
+    for t_file, subfolder, out_file in templates:
         t_path = os.path.join(assets_dir, t_file)
-        out_path = os.path.join(target_dir, out_file)
+        if subfolder:
+            os.makedirs(os.path.join(root_path, subfolder), exist_ok=True)
+            out_path = os.path.join(root_path, subfolder, out_file)
+            display = f"{subfolder}/{out_file}"
+        else:
+            out_path = os.path.join(root_path, out_file)
+            display = out_file
 
         if os.path.exists(out_path) and not overwrite:
-            skipped_files.append(out_file)
+            skipped_files.append(display)
             continue
 
         if os.path.exists(t_path):
@@ -185,16 +195,16 @@ def scaffold(root_path, output_subfolder=".ai", overwrite=False):
                 content = content.replace(key, str(val))
             with open(out_path, "w", encoding="utf-8") as f:
                 f.write(content)
-            created_files.append(out_file)
+            created_files.append(display)
         else:
             print(f"Warning: Template file missing: {t_path}", file=sys.stderr)
 
     return target_dir, created_files, skipped_files
 
 def main():
-    parser = argparse.ArgumentParser(description="Initialize .ai/ workspace documentation for AI agent development.")
+    parser = argparse.ArgumentParser(description="Initialize workspace documentation: AGENTS.md at project root plus .ai/ memory files for AI agent development.")
     parser.add_argument("--path", default=".", help="Root path of target repository (default: current directory)")
-    parser.add_argument("--output-dir", default=".ai", help="Subfolder for workspace files (default: .ai)")
+    parser.add_argument("--output-dir", default=".ai", help="Subfolder for memory files (LESSONS_LEARNED.md, FEATURE_HISTORY.md, TASKS.md, ARCHITECTURE.md). AGENTS.md is always written to the project root. (default: .ai)")
     parser.add_argument("--overwrite", action="store_true", help="Overwrite existing workspace files if present")
     
     args = parser.parse_args()

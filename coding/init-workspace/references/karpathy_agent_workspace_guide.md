@@ -5,7 +5,7 @@
 
 ## Core Architectural Pillars
 
-### 1. Dedicated Instruction Boundary (`.ai/AGENTS.md`)
+### 1. Dedicated Instruction Boundary (`AGENTS.md` at workspace root)
 - **Purpose**: Establishes project setup rules, build/test commands, tech stack specs, and agent constraints.
 - **Why**: LLM agents need unambiguous instructions on how to install, build, and test the project without guessing or running arbitrary destructive shell commands.
 - **Rule**: Keep instructions concise, imperative, and verifiable.
@@ -33,7 +33,7 @@
 
 ## Maintenance Lifecycle for AI Agents
 
-1. **Session Start**: Read `.ai/AGENTS.md` and check `.ai/TASKS.md` for active goals.
+1. **Session Start**: Read `AGENTS.md` (workspace root) and check `.ai/TASKS.md` for active goals.
 2. **Before Code Edits**: Check `.ai/ARCHITECTURE.md` for entry points and `.ai/LESSONS_LEARNED.md` for known pitfalls.
 3. **During Execution**: Update `.ai/TASKS.md` checkboxes as steps complete.
 4. **On Errors / Feedback**: Log new learnings to `.ai/LESSONS_LEARNED.md`.
